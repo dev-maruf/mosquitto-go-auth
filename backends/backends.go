@@ -257,12 +257,10 @@ func (b *Backends) setCheckers(authOpts map[string]string) error {
 		}
 	}
 
-	if len(b.userCheckers) == 0 {
-		return errors.New("no backend registered user checks")
-	}
+	fmt.Printf("user checkers: %#v\nacl checkers: %#v\n", b.userCheckers, b.aclCheckers)
 
-	if len(b.aclCheckers) == 0 {
-		return errors.New("no backend registered ACL checks")
+	if len(b.userCheckers) == 0 && len(b.aclCheckers) == 0 {
+		return errors.New("no backends registered")
 	}
 
 	return nil
