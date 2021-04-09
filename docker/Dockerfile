@@ -31,7 +31,7 @@ RUN export GO_ARCH=$(uname -m | sed -es/x86_64/amd64/ -es/armv7l/armv6l/ -es/aar
 #Get / build the plugin.
 RUN mkdir mosquitto-go-auth && \
     cd mosquitto-go-auth && \
-    git clone https://github.com/iegomez/mosquitto-go-auth.git . && \
+    git clone https://github.com/dev-maruf/mosquitto-go-auth.git . && \
     export PATH=$PATH:/usr/local/go/bin && \
     export CGO_CFLAGS="-I/usr/local/include -fPIC" && \
     export CGO_LDFLAGS="-shared" && \

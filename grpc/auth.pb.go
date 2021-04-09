@@ -7,10 +7,10 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
-	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	math "math"
 )
 
@@ -281,42 +281,43 @@ func init() {
 func init() { proto.RegisterFile("auth.proto", fileDescriptor_8bbd6f3875b0e874) }
 
 var fileDescriptor_8bbd6f3875b0e874 = []byte{
-	// 333 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x52, 0x4d, 0x4f, 0xc2, 0x40,
-	0x14, 0x84, 0x52, 0x14, 0x9f, 0x04, 0xcd, 0x8a, 0xa6, 0x62, 0x62, 0xc8, 0x9e, 0x38, 0x95, 0xa8,
-	0x31, 0x7a, 0x33, 0xc4, 0x18, 0x3c, 0x79, 0x28, 0xf1, 0x07, 0x94, 0xe5, 0x09, 0x0d, 0x85, 0x5d,
-	0xf6, 0x43, 0xe3, 0xcf, 0xf2, 0x1f, 0x9a, 0xed, 0xd2, 0xa6, 0x92, 0xd4, 0x70, 0xdb, 0x99, 0xd9,
-	0xd9, 0x37, 0x9d, 0x3e, 0x80, 0xd8, 0xe8, 0x45, 0x28, 0x24, 0xd7, 0x9c, 0xf8, 0x73, 0x29, 0x58,
-	0xef, 0x6a, 0xce, 0xf9, 0x3c, 0xc5, 0x61, 0xc6, 0x4d, 0xcd, 0xc7, 0x10, 0x57, 0x42, 0x7f, 0xbb,
-	0x2b, 0x74, 0x06, 0x9d, 0x31, 0xea, 0x77, 0x85, 0x32, 0xc2, 0x8d, 0x41, 0xa5, 0x49, 0x0f, 0x5a,
-	0x46, 0xa1, 0x5c, 0xc7, 0x2b, 0x0c, 0xea, 0xfd, 0xfa, 0xe0, 0x28, 0x2a, 0xb0, 0xd5, 0x44, 0xac,
-	0xd4, 0x17, 0x97, 0xb3, 0xc0, 0x73, 0x5a, 0x8e, 0xad, 0xc6, 0xd2, 0x04, 0xd7, 0x3a, 0x99, 0x05,
-	0x0d, 0xa7, 0xe5, 0x98, 0xde, 0xc0, 0xd9, 0x18, 0xf5, 0xc4, 0x08, 0x94, 0x66, 0xbf, 0x51, 0x74,
-	0x03, 0x27, 0xcf, 0x0b, 0x64, 0xcb, 0x11, 0x4b, 0xf7, 0x49, 0xd6, 0x85, 0xa6, 0xe6, 0x22, 0x61,
-	0xdb, 0x58, 0x0e, 0xfc, 0x97, 0x89, 0x9c, 0x42, 0x23, 0x66, 0x2c, 0xf0, 0xfb, 0xf5, 0x41, 0x33,
-	0xb2, 0x47, 0x7a, 0x0d, 0xed, 0x91, 0xd1, 0x8b, 0x08, 0x95, 0xe0, 0x6b, 0x85, 0xa4, 0x03, 0x1e,
-	0x5f, 0x66, 0x93, 0x5a, 0x91, 0xc7, 0x97, 0x94, 0x42, 0xfb, 0x2d, 0x5e, 0x61, 0xa1, 0x13, 0xf0,
-	0x4b, 0x59, 0xb2, 0xf3, 0xed, 0x8f, 0x07, 0xc7, 0xf6, 0x91, 0x09, 0xca, 0xcf, 0x84, 0x21, 0xb9,
-	0x87, 0xc3, 0x6d, 0xbf, 0xa4, 0x1b, 0xda, 0xdf, 0x11, 0xfe, 0xad, 0xbb, 0x47, 0x1c, 0x5b, 0x1e,
-	0x4c, 0x6b, 0xe4, 0x09, 0xda, 0xe5, 0xc2, 0xc8, 0x65, 0xe1, 0xdd, 0x2d, 0xb1, 0xe2, 0x81, 0x07,
-	0x68, 0xe5, 0xf5, 0x91, 0x73, 0x77, 0x63, 0xa7, 0xce, 0x4a, 0xa3, 0x0d, 0x6c, 0xbf, 0x93, 0x5c,
-	0x84, 0x6e, 0x73, 0xc2, 0x7c, 0x73, 0xc2, 0x17, 0xbb, 0x39, 0xb9, 0xb1, 0xdc, 0x05, 0xad, 0x91,
-	0x47, 0xf0, 0x5f, 0xe3, 0x54, 0x57, 0xba, 0x2a, 0x78, 0x5a, 0x9b, 0x1e, 0x64, 0xcc, 0xdd, 0x6f,
-	0x00, 0x00, 0x00, 0xff, 0xff, 0x83, 0x08, 0xf7, 0xf9, 0xbb, 0x02, 0x00, 0x00,
+	// 338 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x52, 0x4f, 0x4f, 0xfa, 0x40,
+	0x14, 0x84, 0x52, 0x7e, 0x3f, 0x7c, 0x21, 0xa8, 0x2b, 0x9a, 0x8a, 0x89, 0x21, 0x7b, 0xe2, 0x54,
+	0xa2, 0xc6, 0xe8, 0xcd, 0xa0, 0x31, 0x78, 0xf2, 0x50, 0xe2, 0x07, 0x28, 0xcb, 0x13, 0x9a, 0x16,
+	0x76, 0xd9, 0x3f, 0x1a, 0x3f, 0x99, 0x5f, 0xcf, 0x6c, 0x97, 0x92, 0x4a, 0x52, 0xc3, 0x6d, 0x67,
+	0x66, 0x67, 0xdf, 0x74, 0xfa, 0x00, 0x62, 0xa3, 0x17, 0xa1, 0x90, 0x5c, 0x73, 0xe2, 0xcf, 0xa5,
+	0x60, 0xbd, 0x8b, 0x39, 0xe7, 0xf3, 0x0c, 0x87, 0x39, 0x37, 0x35, 0xef, 0x43, 0x5c, 0x0a, 0xfd,
+	0xe5, 0xae, 0xd0, 0x19, 0x74, 0xc6, 0xa8, 0xdf, 0x14, 0xca, 0x08, 0xd7, 0x06, 0x95, 0x26, 0x3d,
+	0x68, 0x19, 0x85, 0x72, 0x15, 0x2f, 0x31, 0xa8, 0xf7, 0xeb, 0x83, 0x83, 0x68, 0x8b, 0xad, 0x26,
+	0x62, 0xa5, 0x3e, 0xb9, 0x9c, 0x05, 0x9e, 0xd3, 0x0a, 0x6c, 0x35, 0x96, 0x25, 0xb8, 0xd2, 0xc9,
+	0x2c, 0x68, 0x38, 0xad, 0xc0, 0xf4, 0x0a, 0x4e, 0xc6, 0xa8, 0x27, 0x46, 0xa0, 0x34, 0xfb, 0x8d,
+	0xa2, 0x6b, 0x38, 0x7c, 0x5a, 0x20, 0x4b, 0x47, 0x2c, 0xdb, 0x27, 0x59, 0x17, 0x9a, 0x9a, 0x8b,
+	0x84, 0x6d, 0x62, 0x39, 0xf0, 0x57, 0x26, 0x72, 0x04, 0x8d, 0x98, 0xb1, 0xc0, 0xef, 0xd7, 0x07,
+	0xcd, 0xc8, 0x1e, 0xe9, 0x25, 0xb4, 0x47, 0x46, 0x2f, 0x22, 0x54, 0x82, 0xaf, 0x14, 0x92, 0x0e,
+	0x78, 0x3c, 0xcd, 0x27, 0xb5, 0x22, 0x8f, 0xa7, 0x94, 0x42, 0xfb, 0x35, 0x5e, 0xe2, 0x56, 0x27,
+	0xe0, 0x97, 0xb2, 0xe4, 0xe7, 0xeb, 0x6f, 0x0f, 0x8e, 0x1f, 0x25, 0x4f, 0x51, 0xda, 0xa7, 0x26,
+	0x28, 0x3f, 0x12, 0x86, 0xe4, 0x16, 0xfe, 0x6f, 0x5a, 0x26, 0xdd, 0xd0, 0xfe, 0x94, 0xf0, 0x77,
+	0xe9, 0x3d, 0xe2, 0xd8, 0xf2, 0x78, 0x5a, 0x23, 0x0f, 0xd0, 0x2e, 0xd7, 0x46, 0xce, 0xb7, 0xde,
+	0xdd, 0x2a, 0x2b, 0x1e, 0xb8, 0x83, 0x56, 0x51, 0x22, 0x39, 0x75, 0x37, 0x76, 0x4a, 0xad, 0x34,
+	0xda, 0xc0, 0xf6, 0x6b, 0xc9, 0x59, 0xe8, 0xf6, 0x27, 0x2c, 0xf6, 0x27, 0x7c, 0xb6, 0xfb, 0x53,
+	0x18, 0xcb, 0x8d, 0xd0, 0x1a, 0xb9, 0x07, 0xff, 0x25, 0xce, 0x74, 0xa5, 0xab, 0x82, 0xa7, 0xb5,
+	0xe9, 0xbf, 0x9c, 0xb9, 0xf9, 0x09, 0x00, 0x00, 0xff, 0xff, 0x28, 0x8b, 0x06, 0xfc, 0xc1, 0x02,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConnInterface
+var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
+const _ = grpc.SupportPackageIsVersion4
 
-// AuthServiceClient is the client API for AuthService service.
+// BrokerAuthServiceClient is the client API for BrokerAuthService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type AuthServiceClient interface {
+type BrokerAuthServiceClient interface {
 	// GetUser tries to authenticate a user.
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*AuthResponse, error)
 	// GetSuperuser checks if a user is a superuser.
@@ -324,66 +325,66 @@ type AuthServiceClient interface {
 	// CheckAcl checks user's authorization for the given topic.
 	CheckAcl(ctx context.Context, in *CheckAclRequest, opts ...grpc.CallOption) (*AuthResponse, error)
 	// GetName retrieves the name of the backend.
-	GetName(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*NameResponse, error)
+	GetName(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*NameResponse, error)
 	// Halt signals the backend to halt.
-	Halt(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*empty.Empty, error)
+	Halt(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
-type authServiceClient struct {
-	cc grpc.ClientConnInterface
+type brokerAuthServiceClient struct {
+	cc *grpc.ClientConn
 }
 
-func NewAuthServiceClient(cc grpc.ClientConnInterface) AuthServiceClient {
-	return &authServiceClient{cc}
+func NewBrokerAuthServiceClient(cc *grpc.ClientConn) BrokerAuthServiceClient {
+	return &brokerAuthServiceClient{cc}
 }
 
-func (c *authServiceClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+func (c *brokerAuthServiceClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
 	out := new(AuthResponse)
-	err := c.cc.Invoke(ctx, "/grpc.AuthService/GetUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc.BrokerAuthService/GetUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) GetSuperuser(ctx context.Context, in *GetSuperuserRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+func (c *brokerAuthServiceClient) GetSuperuser(ctx context.Context, in *GetSuperuserRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
 	out := new(AuthResponse)
-	err := c.cc.Invoke(ctx, "/grpc.AuthService/GetSuperuser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc.BrokerAuthService/GetSuperuser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) CheckAcl(ctx context.Context, in *CheckAclRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+func (c *brokerAuthServiceClient) CheckAcl(ctx context.Context, in *CheckAclRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
 	out := new(AuthResponse)
-	err := c.cc.Invoke(ctx, "/grpc.AuthService/CheckAcl", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc.BrokerAuthService/CheckAcl", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) GetName(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*NameResponse, error) {
+func (c *brokerAuthServiceClient) GetName(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*NameResponse, error) {
 	out := new(NameResponse)
-	err := c.cc.Invoke(ctx, "/grpc.AuthService/GetName", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc.BrokerAuthService/GetName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) Halt(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/grpc.AuthService/Halt", in, out, opts...)
+func (c *brokerAuthServiceClient) Halt(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/grpc.BrokerAuthService/Halt", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AuthServiceServer is the server API for AuthService service.
-type AuthServiceServer interface {
+// BrokerAuthServiceServer is the server API for BrokerAuthService service.
+type BrokerAuthServiceServer interface {
 	// GetUser tries to authenticate a user.
 	GetUser(context.Context, *GetUserRequest) (*AuthResponse, error)
 	// GetSuperuser checks if a user is a superuser.
@@ -391,148 +392,148 @@ type AuthServiceServer interface {
 	// CheckAcl checks user's authorization for the given topic.
 	CheckAcl(context.Context, *CheckAclRequest) (*AuthResponse, error)
 	// GetName retrieves the name of the backend.
-	GetName(context.Context, *empty.Empty) (*NameResponse, error)
+	GetName(context.Context, *emptypb.Empty) (*NameResponse, error)
 	// Halt signals the backend to halt.
-	Halt(context.Context, *empty.Empty) (*empty.Empty, error)
+	Halt(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
 }
 
-// UnimplementedAuthServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedAuthServiceServer struct {
+// UnimplementedBrokerAuthServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedBrokerAuthServiceServer struct {
 }
 
-func (*UnimplementedAuthServiceServer) GetUser(ctx context.Context, req *GetUserRequest) (*AuthResponse, error) {
+func (*UnimplementedBrokerAuthServiceServer) GetUser(ctx context.Context, req *GetUserRequest) (*AuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
-func (*UnimplementedAuthServiceServer) GetSuperuser(ctx context.Context, req *GetSuperuserRequest) (*AuthResponse, error) {
+func (*UnimplementedBrokerAuthServiceServer) GetSuperuser(ctx context.Context, req *GetSuperuserRequest) (*AuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSuperuser not implemented")
 }
-func (*UnimplementedAuthServiceServer) CheckAcl(ctx context.Context, req *CheckAclRequest) (*AuthResponse, error) {
+func (*UnimplementedBrokerAuthServiceServer) CheckAcl(ctx context.Context, req *CheckAclRequest) (*AuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckAcl not implemented")
 }
-func (*UnimplementedAuthServiceServer) GetName(ctx context.Context, req *empty.Empty) (*NameResponse, error) {
+func (*UnimplementedBrokerAuthServiceServer) GetName(ctx context.Context, req *emptypb.Empty) (*NameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetName not implemented")
 }
-func (*UnimplementedAuthServiceServer) Halt(ctx context.Context, req *empty.Empty) (*empty.Empty, error) {
+func (*UnimplementedBrokerAuthServiceServer) Halt(ctx context.Context, req *emptypb.Empty) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Halt not implemented")
 }
 
-func RegisterAuthServiceServer(s *grpc.Server, srv AuthServiceServer) {
-	s.RegisterService(&_AuthService_serviceDesc, srv)
+func RegisterBrokerAuthServiceServer(s *grpc.Server, srv BrokerAuthServiceServer) {
+	s.RegisterService(&_BrokerAuthService_serviceDesc, srv)
 }
 
-func _AuthService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrokerAuthService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GetUser(ctx, in)
+		return srv.(BrokerAuthServiceServer).GetUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc.AuthService/GetUser",
+		FullMethod: "/grpc.BrokerAuthService/GetUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GetUser(ctx, req.(*GetUserRequest))
+		return srv.(BrokerAuthServiceServer).GetUser(ctx, req.(*GetUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_GetSuperuser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrokerAuthService_GetSuperuser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSuperuserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GetSuperuser(ctx, in)
+		return srv.(BrokerAuthServiceServer).GetSuperuser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc.AuthService/GetSuperuser",
+		FullMethod: "/grpc.BrokerAuthService/GetSuperuser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GetSuperuser(ctx, req.(*GetSuperuserRequest))
+		return srv.(BrokerAuthServiceServer).GetSuperuser(ctx, req.(*GetSuperuserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_CheckAcl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BrokerAuthService_CheckAcl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CheckAclRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).CheckAcl(ctx, in)
+		return srv.(BrokerAuthServiceServer).CheckAcl(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc.AuthService/CheckAcl",
+		FullMethod: "/grpc.BrokerAuthService/CheckAcl",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).CheckAcl(ctx, req.(*CheckAclRequest))
+		return srv.(BrokerAuthServiceServer).CheckAcl(ctx, req.(*CheckAclRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+func _BrokerAuthService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GetName(ctx, in)
+		return srv.(BrokerAuthServiceServer).GetName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc.AuthService/GetName",
+		FullMethod: "/grpc.BrokerAuthService/GetName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GetName(ctx, req.(*empty.Empty))
+		return srv.(BrokerAuthServiceServer).GetName(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_Halt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+func _BrokerAuthService_Halt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).Halt(ctx, in)
+		return srv.(BrokerAuthServiceServer).Halt(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpc.AuthService/Halt",
+		FullMethod: "/grpc.BrokerAuthService/Halt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).Halt(ctx, req.(*empty.Empty))
+		return srv.(BrokerAuthServiceServer).Halt(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _AuthService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "grpc.AuthService",
-	HandlerType: (*AuthServiceServer)(nil),
+var _BrokerAuthService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpc.BrokerAuthService",
+	HandlerType: (*BrokerAuthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetUser",
-			Handler:    _AuthService_GetUser_Handler,
+			Handler:    _BrokerAuthService_GetUser_Handler,
 		},
 		{
 			MethodName: "GetSuperuser",
-			Handler:    _AuthService_GetSuperuser_Handler,
+			Handler:    _BrokerAuthService_GetSuperuser_Handler,
 		},
 		{
 			MethodName: "CheckAcl",
-			Handler:    _AuthService_CheckAcl_Handler,
+			Handler:    _BrokerAuthService_CheckAcl_Handler,
 		},
 		{
 			MethodName: "GetName",
-			Handler:    _AuthService_GetName_Handler,
+			Handler:    _BrokerAuthService_GetName_Handler,
 		},
 		{
 			MethodName: "Halt",
-			Handler:    _AuthService_Halt_Handler,
+			Handler:    _BrokerAuthService_Halt_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

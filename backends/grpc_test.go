@@ -74,7 +74,7 @@ func TestGRPC(t *testing.T) {
 
 	Convey("given a mock grpc server", t, func(c C) {
 		grpcServer := grpc.NewServer()
-		gs.RegisterAuthServiceServer(grpcServer, NewAuthServiceAPI())
+		gs.RegisterBrokerAuthServiceServer(grpcServer, NewAuthServiceAPI())
 
 		lis, err := net.Listen("tcp", ":3123")
 		So(err, ShouldBeNil)

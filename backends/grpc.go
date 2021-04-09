@@ -18,7 +18,7 @@ import (
 
 // GRPC holds a client for the service and implements the Backend interface.
 type GRPC struct {
-	client           gs.AuthServiceClient
+	client           gs.BrokerAuthServiceClient
 	conn             *grpc.ClientConn
 	disableSuperuser bool
 }
@@ -131,7 +131,7 @@ func (o GRPC) Halt() {
 	}
 }
 
-func createClient(hostname string, caCert, tlsCert, tlsKey []byte) (*grpc.ClientConn, gs.AuthServiceClient, error) {
+func createClient(hostname string, caCert, tlsCert, tlsKey []byte) (*grpc.ClientConn, gs.BrokerAuthServiceClient, error) {
 	logrusEntry := log.NewEntry(log.StandardLogger())
 	logrusOpts := []grpc_logrus.Option{
 		grpc_logrus.WithLevels(grpc_logrus.DefaultCodeToLevel),
@@ -173,5 +173,5 @@ func createClient(hostname string, caCert, tlsCert, tlsKey []byte) (*grpc.Client
 		return nil, nil, errors.Wrap(err, "dial grpc api error")
 	}
 
-	return gsClient, gs.NewAuthServiceClient(gsClient), nil
+	return gsClient, gs.NewBrokerAuthServiceClient(gsClient), nil
 }
